@@ -17,13 +17,13 @@ namespace Hotel_Sarigue
             Suite suite = new Suite("Luxo", 2, 150.00m);
 
             // Criação de uma instância de Reserva
-            Reserva reserva = new Reserva(4);
-
-            // Cadastrando hóspedes na reserva
-            reserva.CadastrarHospedes(new List<Pessoa> { pessoa1, pessoa2 });
+            Reserva reserva = new Reserva(11);
 
             // Cadastrando a suite escolhida na reserva
             reserva.CadastrarSuite(suite);
+
+            // Cadastrando hóspedes na reserva
+            reserva.CadastrarHospedes(new List<Pessoa> { pessoa1, pessoa2 });
 
             // Obter a quantidade de hóspedes
             reserva.ObterQuantidadeHospedes();

@@ -20,11 +20,22 @@ namespace Hotel_Sarigue
         public int DiasReservados;
 
         public void CadastrarHospedes(List<Pessoa> hospedes) {
-            Hospedes.AddRange(hospedes);
-            Console.WriteLine("Hospedes cadastrados");
-            foreach (var item in Hospedes)
+            if (Suite == null)
             {
-                Console.WriteLine($"{item.Nome} {item.Sobrenome} cadastrado!");
+                Console.WriteLine("Suite precisa ser cadastrada!");
+            }
+            else if (Suite.Capacidade >= hospedes.Count && Suite.Capacidade >= Hospedes.Count)
+            {
+                Hospedes.AddRange(hospedes);
+                Console.WriteLine("Hospedes cadastrados");
+                foreach (var item in Hospedes)
+                {
+                    Console.WriteLine($"{item.Nome} {item.Sobrenome} cadastrado!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Capacaidade da suite ultrapassada");
             }
         }
         public void CadastrarSuite(Suite suite) {
@@ -44,8 +55,17 @@ namespace Hotel_Sarigue
             {
                 return 0;
             }
-            Console.WriteLine(DiasReservados * Suite.ValorDiaria);
-            return DiasReservados * Suite.ValorDiaria;
+            
+            var ValorFinal = DiasReservados * Suite.ValorDiaria;
+            
+            if (DiasReservados >= 10)
+            {
+                ValorFinal -= ValorFinal * 0.10m;
+                Console.WriteLine(ValorFinal);
+                return ValorFinal;
+            }
+            Console.WriteLine(ValorFinal);
+            return ValorFinal;
         }
     }
 }
