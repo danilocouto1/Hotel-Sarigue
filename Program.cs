@@ -10,6 +10,26 @@ namespace Hotel_Sarigue
     {
         static void Main(string[] args)
         {
+            Pessoa pessoa1 = new Pessoa("Danilo", "Couto");
+            Pessoa pessoa2 = new Pessoa("Maria", "Silva");
+
+            // Criação de uma instância de Suite
+            Suite suite = new Suite("Luxo", 2, 150.00m);
+
+            // Criação de uma instância de Reserva
+            Reserva reserva = new Reserva(4);
+
+            // Cadastrando hóspedes na reserva
+            reserva.CadastrarHospedes(new List<Pessoa> { pessoa1, pessoa2 });
+
+            // Cadastrando a suite escolhida na reserva
+            reserva.CadastrarSuite(suite);
+
+            // Obter a quantidade de hóspedes
+            reserva.ObterQuantidadeHospedes();
+
+            // Calcular o valor total da estadia
+            reserva.CalcularValorEstadia();
         }
     }
 }
